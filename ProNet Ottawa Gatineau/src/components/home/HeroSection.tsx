@@ -85,7 +85,7 @@ export const HeroSection: React.FC = () => {
           <div className="relative h-72 overflow-hidden rounded-3xl border border-sky-100 bg-white shadow-xl shadow-sky-100 md:h-96">
             {/* CORRECTION : Remplacement du lien CDN par votre image locale personnalisée */}
             <img
-  src="/Image_diverse-Faido.png"
+  src="/Image_diverse-Faido.jpg"
   alt={t('hero.imageAlt')}
   className="h-full w-full object-cover"
 />
