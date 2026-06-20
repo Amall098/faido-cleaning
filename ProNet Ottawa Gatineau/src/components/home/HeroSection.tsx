@@ -46,7 +46,7 @@ export const HeroSection: React.FC = () => {
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-start">
             {/* CORRECTION : Le lien pointe maintenant vers l'ancre du formulaire en bas de page */}
             <a
-              href="#devis"
+              href="#contact"
               className="inline-flex items-center justify-center rounded-full bg-sky-700 px-6 py-3 text-sm font-medium text-white shadow-lg shadow-sky-200 transition hover:bg-sky-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-50"
             >
               {t('hero.primaryCta')}
