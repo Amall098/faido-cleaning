@@ -44,14 +44,16 @@ export const HeroSection: React.FC = () => {
           </p>
 
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-start">
+            {/* CORRECTION : Le lien pointe maintenant vers l'ancre du formulaire en bas de page */}
             <a
-              href="#contact"
+              href="#devis"
               className="inline-flex items-center justify-center rounded-full bg-sky-700 px-6 py-3 text-sm font-medium text-white shadow-lg shadow-sky-200 transition hover:bg-sky-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-50"
             >
               {t('hero.primaryCta')}
             </a>
+            {/* CORRECTION : Le numéro de téléphone pointe vers le bon numéro d'Ottawa/Gatineau */}
             <a
-              href="tel:6135550123"
+              href="tel:+16137122109"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-sky-200 bg-white px-5 py-3 text-sm font-medium text-sky-800 shadow-sm transition hover:border-sky-300 hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-50"
             >
               <PhoneCall className="h-4 w-4" aria-hidden="true" />
@@ -78,8 +80,9 @@ export const HeroSection: React.FC = () => {
         {/* Image / visual card */}
         <div className="w-full max-w-md shrink-0">
           <div className="relative h-72 overflow-hidden rounded-3xl border border-sky-100 bg-white shadow-xl shadow-sky-100 md:h-96">
+            {/* CORRECTION : Remplacement du lien CDN par votre image locale personnalisée */}
             <img
-              src="https://pub-cdn.sider.ai/u/U08XHONVVR/web-coder/6a1a0c47614ae89139cf64f0/resource/ee23b5ac-a43e-4ecb-bad3-c7d81fcd1af7.jpg"
+              src="/hero-cleaning.jpg"
               alt={t('hero.imageAlt')}
               className="h-full w-full object-cover"
             />
