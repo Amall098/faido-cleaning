@@ -85,10 +85,10 @@ export const HeroSection: React.FC = () => {
           <div className="relative h-72 overflow-hidden rounded-3xl border border-sky-100 bg-white shadow-xl shadow-sky-100 md:h-96">
             {/* CORRECTION : Remplacement du lien CDN par votre image locale personnalisée */}
             <img
-              src="/hero-cleaning.jpg"
-              alt={t('hero.imageAlt')}
-              className="h-full w-full object-cover"
-            />
+  src="/Image_diverse-Faido.png"
+  alt={t('hero.imageAlt')}
+  className="h-full w-full object-cover"
+/>
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
 
             <div className="absolute bottom-4 left-4 right-4 space-y-2 text-sm text-white">
