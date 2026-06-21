@@ -72,7 +72,31 @@ export const ContactFooter: React.FC = () => {
   }
 
   const currentYear = new Date().getFullYear()
+const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
 
+    // Renseignez votre clé Web3Forms ici
+    formData.append("access_key", "VOTRE_CLE_WEB3FORMS_ICI");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert("Merci ! Votre demande de devis a été envoyée avec succès.");
+        event.currentTarget.reset(); // Vide le formulaire après l'envoi
+      } else {
+        alert("Une erreur s'est produite. Veuillez réessayer.");
+      }
+    } catch (error) {
+      alert("Erreur de connexion. Veuillez vérifier votre internet.");
+    }
+  };
   return (
     <footer
       id="contact"
