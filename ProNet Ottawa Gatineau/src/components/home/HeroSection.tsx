@@ -84,11 +84,11 @@ export const HeroSection: React.FC = () => {
         <div className="w-full max-w-md shrink-0">
           <div className="relative h-72 overflow-hidden rounded-3xl border border-sky-100 bg-white shadow-xl shadow-sky-100 md:h-96">
             {/* CORRECTION : Remplacement du lien CDN par votre image locale personnalisée */}
-            <img
-  src="/Image_diverse-Faido.jpg"
-  alt={t('hero.imageAlt')}
-  className="h-full w-full object-cover"
-/>
+        <img
+              src="https://pub-cdn.sider.ai/u/U08XHONVVR/web-coder/6a1a0c47614ae89139cf64f0/resource/ea0587ab-75ea-4b3e-a29f-2e1df87811c4.jpg"
+              alt={t('hero.imageAlt')}
+              className="h-full w-full object-cover"
+            />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
 
             <div className="absolute bottom-4 left-4 right-4 space-y-2 text-sm text-white">
