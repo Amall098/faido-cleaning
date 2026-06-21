@@ -77,7 +77,7 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     const formData = new FormData(event.currentTarget);
 
     // Renseignez votre clé Web3Forms ici
-    formData.append("access_key", "VOTRE_CLE_WEB3FORMS_ICI");
+    formData.append("access_key", "3f14df5a-deac-4d20-b2f0-0c1357e8fab0");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -116,10 +116,7 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
               {t('footer.description')}
             </p>
 
-            <form
-              onSubmit={handleSubmit}
-              className="mt-6 grid gap-4 rounded-2xl border border-slate-800 bg-slate-900/60 p-4 shadow-lg shadow-slate-950/40 sm:p-5"
-            >
+            <form onSubmit={onSubmit} className="mt-8 space-y-6">
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-1.5">
                   <label
