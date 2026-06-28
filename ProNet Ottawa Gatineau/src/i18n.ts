@@ -14,12 +14,12 @@ const resources = {
   fr: {
     translation: {
       common: {
-        companyTagline: 'Nettoyage professionnel &amp; haut de gamme',
+        companyTagline: 'Nettoyage professionnel et de haut de gamme',
         languageFrench: 'Français',
         languageEnglish: 'English',
       },
       hero: {
-        badge: 'Nettoyage professionnel &amp; haut de gamme',
+        badge: 'Nettoyage professionnel et de haut de gamme',
         titleBeforeCity: 'Propreté irréprochable à',
         titleCity: 'Ottawa/Gatineau',
         titleAfterCity: ', service fiable et clé en main.',
@@ -45,7 +45,7 @@ const resources = {
           "Idéal pour les clients qui recherchent un service fiable, ponctuel et méticuleux, adapté à la réalité d'Ottawa/Gatineau.",
         residential: {
           title: 'Nettoyage résidentiel',
-          badge: 'Maisons &amp; appartements',
+          badge: 'Maisons et appartements',
           description:
             'Pour des maisons, condos et appartements où il fait bon vivre, sans compromis sur l’hygiène ni sur le confort.',
           points: [
