@@ -27,9 +27,9 @@ const resources = {
           "{{companyName}} offre un service de nettoyage professionnel pour les secteurs résidentiel et commercial dans toute la région d'Ottawa/Gatineau. Nous créons des espaces impeccables, sains et accueillants, à chaque intervention.",
         primaryCta: 'Obtenir un devis gratuit',
         secondaryCta: 'Appelez-nous maintenant',
-        bullet1: 'Équipe vérifiée, assurée &amp; professionnelle',
-        bullet2: 'Propreté éclatante &amp; contrôle qualité systématique',
-        bullet3: 'Ottawa, Gatineau, Hull, Kanata, Orleans &amp; environs',
+        bullet1: 'Équipe vérifiée, assurée et professionnelle',
+        bullet2: 'Propreté éclatante et contrôle qualité systématique',
+        bullet3: 'Ottawa, Gatineau, Hull, Kanata, Orleans et environs',
         cardBadge: 'Propreté 100 % garantie',
         cardText:
           "Un intérieur impeccable, sans compromis sur la santé, la sécurité ni l'image de votre espace.",
@@ -56,7 +56,7 @@ const resources = {
         },
         commercial: {
           title: 'Nettoyage commercial',
-          badge: 'Bureaux &amp; commerces',
+          badge: 'Bureaux et commerces',
           description:
             'Une image irréprochable pour vos clients et un environnement sain pour vos équipes.',
           points: [
@@ -182,12 +182,12 @@ const resources = {
   en: {
     translation: {
       common: {
-        companyTagline: 'Professional &amp; premium cleaning',
+        companyTagline: 'Professional and premium cleaning',
         languageFrench: 'French',
         languageEnglish: 'English',
       },
       hero: {
-        badge: 'Professional &amp; premium cleaning',
+        badge: 'Professional and premium cleaning',
         titleBeforeCity: 'Spotless cleanliness in',
         titleCity: 'Ottawa/Gatineau',
         titleAfterCity: ', reliable turnkey service.',
@@ -195,9 +195,9 @@ const resources = {
           '{{companyName}} provides professional cleaning services for residential and commercial spaces across the Ottawa/Gatineau region. We create spotless, healthy and welcoming environments with every visit.',
         primaryCta: 'Get a free quote',
         secondaryCta: 'Call us now',
-        bullet1: 'Vetted, insured &amp; professional team',
-        bullet2: 'Sparkling results &amp; systematic quality checks',
-        bullet3: 'Ottawa, Gatineau, Hull, Kanata, Orleans &amp; area',
+        bullet1: 'Vetted, insured and professional team',
+        bullet2: 'Sparkling results and systematic quality checks',
+        bullet3: 'Ottawa, Gatineau, Hull, Kanata, Orleans and area',
         cardBadge: '100% cleanliness guaranteed',
         cardText:
           'A spotless interior with no compromise on health, safety or the image of your space.',
@@ -213,7 +213,7 @@ const resources = {
           'Ideal for clients who need a reliable, punctual and meticulous service adapted to Ottawa/Gatineau.',
         residential: {
           title: 'Residential cleaning',
-          badge: 'Houses &amp; apartments',
+          badge: 'Houses and apartments',
           description:
             'For homes, condos and apartments that feel great to live in, with no compromise on hygiene or comfort.',
           points: [
@@ -224,7 +224,7 @@ const resources = {
         },
         commercial: {
           title: 'Commercial cleaning',
-          badge: 'Offices &amp; retail',
+          badge: 'Offices and retail',
           description:
             'A spotless image for your clients and a healthy environment for your teams.',
           points: [
