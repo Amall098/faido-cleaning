@@ -8,10 +8,6 @@ import { Mail, MapPin, Phone, Sparkles } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { COMPANY_NAME } from '../../constants/company'
 
-/**
- * @interface ContactFormData
- * @description Contact form state structure.
- */
 interface ContactFormData {
   name: string
   email: string
@@ -20,10 +16,6 @@ interface ContactFormData {
   message: string
 }
 
-/**
- * @component ContactFooter
- * @description Displays a contact form, basic navigation links and company details.
- */
 export const ContactFooter: React.FC = () => {
   const { t } = useTranslation()
 
@@ -37,10 +29,6 @@ export const ContactFooter: React.FC = () => {
 
   const [submitted, setSubmitted] = useState(false)
 
-  /**
-   * @function handleChange
-   * @description Updates form state when an input value changes.
-   */
   const handleChange = (
     event:
       | React.ChangeEvent<HTMLInputElement>
@@ -54,66 +42,46 @@ export const ContactFooter: React.FC = () => {
     }
   }
 
-  /**
-   * @function handleSubmit
-   * @description Handles contact form submission locally with a confirmation message.
-   */
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    // In a real application, this is where a request to a backend API would be made.
-    setSubmitted(true)
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      serviceType: '',
-      message: '',
-    })
-  }
-
   const currentYear = new Date().getFullYear()
-const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-  event.preventDefault()
 
-  const payload = {
-    access_key: '4e742e05-571f-4517-98f0-e2bf40d018c3',
-    ...formData, // uses your controlled state directly
-  }
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
 
-  try {
-    const response = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      body: JSON.stringify(payload),
-    })
+    const payload = {
+      access_key: '4e742e05-571f-4517-98f0-e2bf40d018c3',
+      ...formData,
+    }
 
-    const data = await response.json()
-
-    if (data.success) {
-      setSubmitted(true)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        serviceType: '',
-        message: '',
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
       })
-    } else {
-      alert("Le serveur a refusé l'envoi : " + data.message)
-    }
-  } catch (error) {
-    console.error(error)
-    alert('Erreur de connexion. Veuillez réessayer.')
-  }
-}
+
+      const data = await response.json()
+
+      if (data.success) {
+        setSubmitted(true)
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          serviceType: '',
+          message: '',
+        })
+      } else {
+        alert("Le serveur a refusé l'envoi : " + data.message)
+      }
     } catch (error) {
-      console.error(error); // Permet de lire l'erreur exacte dans la console (F12)
-      alert("Erreur de connexion. Si vous utilisez un bloqueur de publicités, veuillez le désactiver temporairement.");
+      console.error(error)
+      alert('Erreur de connexion. Veuillez réessayer.')
     }
-  };
+  }
+
   return (
     <footer
       id="contact"
@@ -136,10 +104,7 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
             <form onSubmit={onSubmit} className="mt-8 space-y-6">
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-1.5">
-                  <label
-                    htmlFor="name"
-                    className="text-xs font-medium text-slate-100"
-                  >
+                  <label htmlFor="name" className="text-xs font-medium text-slate-100">
                     {t('footer.form.nameLabel')}
                   </label>
                   <input
@@ -153,10 +118,7 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label
-                    htmlFor="email"
-                    className="text-xs font-medium text-slate-100"
-                  >
+                  <label htmlFor="email" className="text-xs font-medium text-slate-100">
                     {t('footer.form.emailLabel')}
                   </label>
                   <input
@@ -174,10 +136,7 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 
               <div className="grid gap-4 md:grid-cols-2">
                 <div className="space-y-1.5">
-                  <label
-                    htmlFor="phone"
-                    className="text-xs font-medium text-slate-100"
-                  >
+                  <label htmlFor="phone" className="text-xs font-medium text-slate-100">
                     {t('footer.form.phoneLabel')}
                   </label>
                   <input
@@ -192,10 +151,7 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label
-                    htmlFor="serviceType"
-                    className="text-xs font-medium text-slate-100"
-                  >
+                  <label htmlFor="serviceType" className="text-xs font-medium text-slate-100">
                     {t('footer.form.serviceTypeLabel')}
                   </label>
                   <select
@@ -209,27 +165,16 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
                     <option value="" disabled>
                       {t('footer.form.serviceTypePlaceholder')}
                     </option>
-                    <option value="residential">
-                      {t('footer.form.serviceTypeResidential')}
-                    </option>
-                    <option value="commercial">
-                      {t('footer.form.serviceTypeCommercial')}
-                    </option>
-                    <option value="post-construction">
-                      {t('footer.form.serviceTypePostConstruction')}
-                    </option>
-                    <option value="other">
-                      {t('footer.form.serviceTypeOther')}
-                    </option>
+                    <option value="residential">{t('footer.form.serviceTypeResidential')}</option>
+                    <option value="commercial">{t('footer.form.serviceTypeCommercial')}</option>
+                    <option value="post-construction">{t('footer.form.serviceTypePostConstruction')}</option>
+                    <option value="other">{t('footer.form.serviceTypeOther')}</option>
                   </select>
                 </div>
               </div>
 
               <div className="space-y-1.5">
-                <label
-                  htmlFor="message"
-                  className="text-xs font-medium text-slate-100"
-                >
+                <label htmlFor="message" className="text-xs font-medium text-slate-100">
                   {t('footer.form.messageLabel')}
                 </label>
                 <textarea
@@ -260,12 +205,8 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 
           <div className="space-y-6 text-sm text-slate-300">
             <div>
-              <h3 className="text-sm font-semibold text-slate-50">
-                {COMPANY_NAME}
-              </h3>
-              <p className="mt-2 text-xs text-slate-400">
-                {t('footer.companyNote')}
-              </p>
+              <h3 className="text-sm font-semibold text-slate-50">{COMPANY_NAME}</h3>
+              <p className="mt-2 text-xs text-slate-400">{t('footer.companyNote')}</p>
             </div>
 
             <div className="space-y-3">
@@ -285,10 +226,7 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-emerald-300" aria-hidden="true" />
-                <a
-                  href="mailto:faido.cleaning@gmail.com"
-                  className="hover:text-sky-200"
-                >
+                <a href="mailto:faido.cleaning@gmail.com" className="hover:text-sky-200">
                   faido.cleaning@gmail.com
                 </a>
               </div>
@@ -298,21 +236,11 @@ const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
 
             <div className="flex flex-wrap gap-4 text-xs text-slate-400">
               <nav className="flex flex-wrap gap-3">
-                <a href="#hero" className="hover:text-sky-200">
-                  {t('footer.navHome')}
-                </a>
-                <a href="#services" className="hover:text-sky-200">
-                  {t('footer.navServices')}
-                </a>
-                <a href="#zone" className="hover:text-sky-200">
-                  {t('footer.navCoverage')}
-                </a>
-                <a href="#processus" className="hover:text-sky-200">
-                  {t('footer.navProcess')}
-                </a>
-                <a href="#contact" className="hover:text-sky-200">
-                  {t('footer.navContact')}
-                </a>
+                <a href="#hero" className="hover:text-sky-200">{t('footer.navHome')}</a>
+                <a href="#services" className="hover:text-sky-200">{t('footer.navServices')}</a>
+                <a href="#zone" className="hover:text-sky-200">{t('footer.navCoverage')}</a>
+                <a href="#processus" className="hover:text-sky-200">{t('footer.navProcess')}</a>
+                <a href="#contact" className="hover:text-sky-200">{t('footer.navContact')}</a>
               </nav>
             </div>
 
