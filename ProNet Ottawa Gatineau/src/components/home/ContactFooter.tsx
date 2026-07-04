@@ -73,36 +73,42 @@ export const ContactFooter: React.FC = () => {
 
   const currentYear = new Date().getFullYear()
 const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  event.preventDefault()
 
-    // 1. Récupération des données
-    const formData = new FormData(event.currentTarget);
-    
-    // Renseignez votre vraie clé Web3Forms ici
-    formData.append("access_key", "VOTRE_CLE_WEB3FORMS_ICI");
+  const payload = {
+    access_key: 'YOUR_REAL_KEY_HERE',
+    ...formData, // uses your controlled state directly
+  }
 
-    // 2. Conversion au format JSON (La norme recommandée pour React)
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: json
-      });
+    const data = await response.json()
 
-      const data = await response.json();
-
-      if (data.success) {
-        alert("Merci ! Votre demande a été envoyée avec succès à Faido Cleaning.");
-        event.currentTarget.reset(); // Vide le formulaire
-      } else {
-        alert("Le serveur a refusé l'envoi : " + data.message);
-      }
+    if (data.success) {
+      setSubmitted(true)
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        serviceType: '',
+        message: '',
+      })
+    } else {
+      alert("Le serveur a refusé l'envoi : " + data.message)
+    }
+  } catch (error) {
+    console.error(error)
+    alert('Erreur de connexion. Veuillez réessayer.')
+  }
+}
     } catch (error) {
       console.error(error); // Permet de lire l'erreur exacte dans la console (F12)
       alert("Erreur de connexion. Si vous utilisez un bloqueur de publicités, veuillez le désactiver temporairement.");
